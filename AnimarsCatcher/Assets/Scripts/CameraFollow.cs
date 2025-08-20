@@ -1,25 +1,25 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace AnimarsCatcher
 {
-    // CameraFollow ÀàÓÃÓÚÊµÏÖÉãÏñ»ú¸úËæÍæ¼ÒµÄ¹¦ÄÜ
+    // CameraFollow ç±»ç”¨äºå®ç°æ‘„åƒæœºè·Ÿéšç©å®¶çš„åŠŸèƒ½
     public class CameraFollow : MonoBehaviour
     {
-        private Vector3 m_Offset; // ÉãÏñ»úÓëÍæ¼ÒÖ®¼äµÄÆ«ÒÆÁ¿
+        private Vector3 m_Offset; // æ‘„åƒæœºä¸ç©å®¶ä¹‹é—´çš„åç§»é‡
 
-        private Transform m_Player; // Íæ¼Ò¶ÔÏóµÄ Transform
+        private Transform m_Player; // ç©å®¶å¯¹è±¡çš„ Transform
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-            m_Player = GameObject.FindGameObjectWithTag("Player").transform; // ²éÕÒ´øÓĞ "Player" ±êÇ©µÄÓÎÏ·¶ÔÏó
-            m_Offset = transform.position - m_Player.position; // ¼ÆËãÉãÏñ»úÓëÍæ¼ÒÖ®¼äµÄ³õÊ¼Æ«ÒÆÁ¿
+            m_Player = GameObject.FindGameObjectWithTag("Player").transform; // æŸ¥æ‰¾å¸¦æœ‰ "Player" æ ‡ç­¾çš„æ¸¸æˆå¯¹è±¡
+            m_Offset = transform.position - m_Player.position; // è®¡ç®—æ‘„åƒæœºä¸ç©å®¶ä¹‹é—´çš„åˆå§‹åç§»é‡
         }
 
         // Update is called once per frame
         void Update()
         {
-            transform.position = m_Player.position + m_Offset; // ¸üĞÂÉãÏñ»úÎ»ÖÃ£¬Ê¹ÆäÊ¼ÖÕ¸úËæÍæ¼Ò
+            transform.position = m_Player.position + m_Offset; // æ›´æ–°æ‘„åƒæœºä½ç½®ï¼Œä½¿å…¶å§‹ç»ˆè·Ÿéšç©å®¶
         }
     }
 }

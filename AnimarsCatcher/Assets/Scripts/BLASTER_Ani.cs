@@ -1,4 +1,4 @@
-using UnityEngine;
+锘縰sing UnityEngine;
 
 namespace AnimarsCatcher
 {
@@ -18,15 +18,15 @@ namespace AnimarsCatcher
         {
             if (m_Animator.GetCurrentAnimatorStateInfo(1).IsName("Shoot"))
             {
-                // 在射击动画中启用IK
+                // 鍦ㄥ皠鍑诲姩鐢讳腑鍚敤IK
 
-                // 左手IK
+                // 宸︽墜IK
                 m_Animator.SetIKPosition(AvatarIKGoal.LeftHand, LeftHandIKTrans.position);
                 m_Animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 0.5f);
                 m_Animator.SetIKRotation(AvatarIKGoal.LeftHand, LeftHandIKTrans.rotation);
                 m_Animator.SetIKRotationWeight(AvatarIKGoal.LeftHand, 0.5f);
 
-                // 右手IK
+                // 鍙虫墜IK
                 m_Animator.SetIKPosition(AvatarIKGoal.RightHand, RightHandIKTrans.position);
                 m_Animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 0.5f);
                 m_Animator.SetIKRotation(AvatarIKGoal.RightHand, RightHandIKTrans.rotation);

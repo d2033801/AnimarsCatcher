@@ -1,5 +1,5 @@
-using UnityEngine;
-using UnityEngine.InputSystem; // ĞÂÔö
+ï»¿using UnityEngine;
+using UnityEngine.InputSystem; // æ–°å¢
 
 
 namespace AnimarsCatcher
@@ -22,12 +22,12 @@ namespace AnimarsCatcher
         void Update()
         {
             //float h = Input.GetAxis("Horizontal");
-            float h = controls.Player.Move.ReadValue<Vector2>().x;          //Ê¹ÓÃinputsystem
+            float h = controls.Player.Move.ReadValue<Vector2>().x;          //ä½¿ç”¨inputsystem
             float v = controls.Player.Move.ReadValue<Vector2>().y;
             //float v = Input.GetAxis("Vertical");
             float y = Camera.main.transform.rotation.eulerAngles.y;
 
-            // Ä¿±êÒÆ¶¯·½Ïò
+            // ç›®æ ‡ç§»åŠ¨æ–¹å‘
             Vector3 targetDirection = new Vector3(h, 0, v);
             targetDirection = Quaternion.Euler(0, y, 0) * targetDirection;
 
@@ -36,9 +36,9 @@ namespace AnimarsCatcher
                 transform.forward = Vector3.Lerp(transform.forward, targetDirection, Time.deltaTime * 10f);
             }
             var speed = targetDirection * MoveSpeed;
-            transform.GetComponent<Rigidbody>().linearVelocity = speed; //ÉèÖÃ¸ÕÌåÏßĞÔËÙ¶È
+            transform.GetComponent<Rigidbody>().linearVelocity = speed; //è®¾ç½®åˆšä½“çº¿æ€§é€Ÿåº¦
 
-            // Ê¹ÓÃĞÂInput System¼ì²âÊó±ê×ó¼ü°´ÏÂ
+            // ä½¿ç”¨æ–°Input Systemæ£€æµ‹é¼ æ ‡å·¦é”®æŒ‰ä¸‹
             if (Mouse.current != null && Mouse.current.leftButton.isPressed)
             {
                 PICKER_Ani.SetBool("LeftMouseDown", true);
