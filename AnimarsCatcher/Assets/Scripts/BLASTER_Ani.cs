@@ -61,6 +61,6 @@ namespace AnimarsCatcher
                 m_Animator.SetIKRotation(AvatarIKGoal.RightHand, RightHandIKTrans.rotation);
                 m_Animator.SetIKRotationWeight(AvatarIKGoal.RightHand, 0.5f);
             }
-            }
+        }
     }
 }

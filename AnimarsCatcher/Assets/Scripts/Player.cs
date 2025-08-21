@@ -8,9 +8,10 @@ namespace AnimarsCatcher
 {
     public class Player : MonoBehaviour
     {
+
         [Header("List of Anis")]
-        [Tooltip("拾取者Ani")] public Animator PICKER_Ani;     // 测试用数据
-        [Tooltip("战斗者Ani")] public Animator BLASTER_Ani;    // 测试用数据
+        [Tooltip("拾取者Ani 测试用数据")] public Animator PICKER_Ani;     // 测试用数据
+        [Tooltip("战斗者Ani 测试用数据")] public Animator BLASTER_Ani;    // 测试用数据
         [Tooltip("Ani的移动速度")]  public float MoveSpeed = 20.0f;
 
         private List<PICKER_Ani> m_PickerAniList = new List<PICKER_Ani>();
@@ -68,6 +69,9 @@ namespace AnimarsCatcher
         // Update is called once per frame
         void Update()
         {
+#if false            //测试模式
+            AnimationSystemTest();
+#else
             RobotMove();
 
             // 按下鼠标右键时清理之前的Ani列表(只在按下的那一下执行)
@@ -112,6 +116,7 @@ namespace AnimarsCatcher
 
             m_CurrentRadius = Mathf.Lerp(m_CurrentRadius, m_RightMouseButton ? ControlRadiusMax : ControlRadiusMin,
                 Time.deltaTime * 10);
+#endif
         }
 
         /// <summary>
@@ -202,12 +207,12 @@ namespace AnimarsCatcher
         private void AnimationSystemTest()
         {
             // 使用新Input System检测鼠标左键按下
-            if (Mouse.current != null && Mouse.current.leftButton.isPressed)
+         /*   if (Mouse.current != null && Mouse.current.leftButton.isPressed)
             {
                 PICKER_Ani.SetBool("LeftMouseDown", true);
                 BLASTER_Ani.SetBool("LeftMouseDown", true);
             }
-
+         */
             if (Mouse.current != null && Mouse.current.rightButton.isPressed)
             {
                 m_AniSpeed = Mathf.Clamp(m_AniSpeed - Time.deltaTime * 5, 2, 5);
@@ -225,6 +230,10 @@ namespace AnimarsCatcher
             if (Keyboard.current != null && Keyboard.current.jKey.isPressed)
             {
                 BLASTER_Ani.SetTrigger("Shoot");
+            }
+            if (Keyboard.current != null && Keyboard.current.cKey.isPressed)
+            {
+                PICKER_Ani.SetBool("Collect", !PICKER_Ani.GetBool("Collect"));
             }
         }
 

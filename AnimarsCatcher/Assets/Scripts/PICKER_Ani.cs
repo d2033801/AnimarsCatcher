@@ -40,4 +40,22 @@ public class PICKER_Ani : MonoBehaviour
             }
         }
     }
+
+    private void OnAnimatorIK(int layerIndex)
+    {
+        if(m_Animator.GetCurrentAnimatorStateInfo(layerIndex).IsName("Carrying"))
+        {
+            // 在拾取动画中启用IK
+            // 左手IK
+            m_Animator.SetIKPosition(AvatarIKGoal.LeftHand, LeftHandIKTrans.position);
+            m_Animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 0.5f);
+            m_Animator.SetIKRotation(AvatarIKGoal.LeftHand, LeftHandIKTrans.rotation);
+            m_Animator.SetIKRotationWeight(AvatarIKGoal.LeftHand, 0.5f);
+            // 右手IK
+            m_Animator.SetIKPosition(AvatarIKGoal.RightHand, RightHandIKTrans.position);
+            m_Animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 0.5f);
+            m_Animator.SetIKRotation(AvatarIKGoal.RightHand, RightHandIKTrans.rotation);
+            m_Animator.SetIKRotationWeight(AvatarIKGoal.RightHand, 0.5f);
+        }
+    }
 }
