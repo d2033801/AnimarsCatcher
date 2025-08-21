@@ -206,8 +206,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1921698, y: -0.67545104, z: 0.18912019, w: 0.6863456}
-  m_LocalPosition: {x: 20.193647, y: 10.199392, z: 1.8587574}
+  m_LocalRotation: {x: -0.24440208, y: 0.6050761, z: -0.20252956, w: -0.73015916}
+  m_LocalPosition: {x: 24.603935, y: 16.108444, z: 3.5926695}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -614,11 +614,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1431293835 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 530569280984497468, guid: 5c5f10dc4bab43a4c8fcbf0f6b66d3e2, type: 3}
-  m_PrefabInstance: {fileID: 8431333804408527101}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1546008898
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1051,8 +1046,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58ea211b1e485ca4caa869f529c42455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PICKER_Ani: {fileID: 5866666020711730858}
-  BLASTER_Ani: {fileID: 1431293835}
+  PICKER_Ani: {fileID: 0}
+  BLASTER_Ani: {fileID: 0}
   MoveSpeed: 20
   ControlRadiusMin: 0
   ControlRadiusMax: 5
@@ -1198,11 +1193,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 647849006571679285}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &5866666020711730858 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1726886084779234263, guid: b16c2c8de8e819b4d8bea432db635b04, type: 3}
-  m_PrefabInstance: {fileID: 446148803451104675}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6001795562095086922
 GameObject:
   m_ObjectHideFlags: 0

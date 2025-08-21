@@ -9,8 +9,8 @@ namespace AnimarsCatcher
     public class Player : MonoBehaviour
     {
         [Header("List of Anis")]
-        [Tooltip("拾取者Ani")] public Animator PICKER_Ani;
-        [Tooltip("战斗者Ani")] public Animator BLASTER_Ani;
+        [Tooltip("拾取者Ani")] public Animator PICKER_Ani;     // 测试用数据
+        [Tooltip("战斗者Ani")] public Animator BLASTER_Ani;    // 测试用数据
         [Tooltip("Ani的移动速度")]  public float MoveSpeed = 20.0f;
 
         private List<PICKER_Ani> m_PickerAniList = new List<PICKER_Ani>();
@@ -32,6 +32,9 @@ namespace AnimarsCatcher
         // MainCamera reference 主摄像机引用
         private Camera m_MainCamera;
 
+        // Robot Animator reference 动画机引用
+        private Animator m_RobotAnimator;
+        private static readonly int RobotSpeedHash = Animator.StringToHash("RobotSpeed");
         private void Awake()
         {
             // 获取刚体组件
@@ -45,6 +48,12 @@ namespace AnimarsCatcher
             if (m_MainCamera == null)
             {
                 Debug.LogError("Main camera not found in the scene.");
+            }
+
+            m_RobotAnimator = GetComponent<Animator>();
+            if (m_RobotAnimator == null)
+            {
+                Debug.LogError("Animator component not found on the player object.");
             }
             // 初始化输入系统
             controls = new InputSystem_Actions();
@@ -127,7 +136,7 @@ namespace AnimarsCatcher
             }
             var speed = targetDirection * MoveSpeed;
             m_Rigidbody.linearVelocity = speed; //设置刚体线性速度
-
+            m_RobotAnimator.SetFloat(RobotSpeedHash, speed.magnitude); // 设置动画速度参数
 
         }
 
