@@ -119,6 +119,8 @@ namespace AnimarsCatcher
 #endif
         }
 
+
+        Vector3 m_CurrentTargetDirection = Vector3.zero; // 当前目标方向, 用于平滑移动
         /// <summary>
         /// 机器人移动方法
         /// 使用Input System获取输入
@@ -134,12 +136,15 @@ namespace AnimarsCatcher
             // 目标移动方向
             Vector3 targetDirection = new Vector3(h, 0, v);
             targetDirection = Quaternion.Euler(0, y, 0) * targetDirection;
+            m_CurrentTargetDirection = Vector3.Lerp(m_CurrentTargetDirection, targetDirection, Time.deltaTime * 10f);
 
-            if (targetDirection != Vector3.zero)
+            // 如果目标方向不为零，则更新机器人的朝向
+            if (m_CurrentTargetDirection != Vector3.zero)
             {
-                transform.forward = Vector3.Lerp(transform.forward, targetDirection, Time.deltaTime * 10f);
+                transform.forward = Vector3.Lerp(transform.forward, m_CurrentTargetDirection, Time.deltaTime * 10f);
             }
-            var speed = targetDirection * MoveSpeed;
+            var speed = m_CurrentTargetDirection * MoveSpeed;
+            Debug.Log("Speed: " + speed);
             m_Rigidbody.linearVelocity = speed; //设置刚体线性速度
             m_RobotAnimator.SetFloat(RobotSpeedHash, speed.magnitude); // 设置动画速度参数
 
